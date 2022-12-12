@@ -1,7 +1,18 @@
 body{
     text-align: center;
     background: gray;
+    width: 500px;
+    margin: auto;
 }
 #h1title {
+    color: maroon;
+    border: solid  4px;
+     width: fit-content;
+    margin: auto;
+}
+#songinput{
+    border: 3px solid;
+    width: fit-content;
+    margin: auto;
     color: maroon;
 }
