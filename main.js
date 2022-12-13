@@ -13,3 +13,5 @@ function displayMusic () {}
 function addMusic() {} 
 
 function btnhandle() {}
+
+function removehandle(){}
