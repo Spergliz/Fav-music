@@ -11,13 +11,14 @@ btnE1.addEventListener("click", btnhandle)
 
 function displayMusic () { let outputstr = ``;
 for (let i = 0; i < music.length; i++) {
-  outputstr += getMusicStr(music[i], i);
+  outputstr += getmusicStr(music[i], i);
 }
 musicdivE1.innerHTML = outputstr;
 }
 
 function addMusic() {
-    
+music.push(newsong(musicnameE1,artistE1,lengthE1))
+displayMusic(); 
 } 
 
 function btnhandle() {
@@ -26,6 +27,25 @@ function btnhandle() {
 
 function removehandle(){}
 
-function newsong (){
-
+function newsong (Song,Artist,length){
+return{ 
+song: Song,
+artist:Artist,
+legnth: length,
 }
+}
+function savemusic() {
+    localStorage.setItem("music", JSON.stringify(music));
+  }
+  
+  function loadcontacts() {
+    let musicstr = localStorage.getItem("music");
+    return JSON.parse(musicstr) ?? [];
+  }
+  function getmusicStr(music, i) {
+    return `
+    <div> 
+   
+    </div>
+    `;
+  }
