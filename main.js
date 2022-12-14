@@ -21,10 +21,6 @@ music.push(newsong(musicnameE1,artistE1,lengthE1))
 displayMusic(); 
 } 
 
-function btnhandle() {
-
-}
-
 function removehandle(){}
 
 function newsong (Song,Artist,length){
