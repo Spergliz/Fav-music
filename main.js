@@ -8,10 +8,19 @@ let btnE1= document.getElementById("btn")
 
 btnE1.addEventListener("click", btnhandle)
 
-function displayMusic () {}
+function displayMusic () { let outputstr = ``;
+for (let i = 0; i < music.length; i++) {
+  outputstr += getContactStr(music[i], i);
+}
+contactsE1.innerHTML = outputstr;
+}
 
 function addMusic() {} 
 
-function btnhandle() {}
+function btnhandle() {
+    
+}
 
 function removehandle(){}
+
+function newsong (){}
