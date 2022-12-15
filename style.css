@@ -5,14 +5,19 @@ body{
     margin: auto;
 }
 #h1title {
-    color: maroon;
-    border: solid  4px;
+    color: rgb(18, 37, 80);
+    border: solid  1px;
      width: fit-content;
     margin: auto;
 }
 #songinput{
-    border: 3px solid;
+    border: 1px solid;
     width: fit-content;
     margin: auto;
-    color: maroon;
+    color: rgb(18, 37, 80);
+}
+#Music div{
+    border: 2px solid rgba(184, 76, 130, 0.658);
+    width: fit-content;
+    margin: auto;
 }
