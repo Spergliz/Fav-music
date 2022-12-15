@@ -53,7 +53,10 @@ function getmusicStr(music, i) {
   return `
     <div> 
     Favourite  Song ${i} <br>
-    <img src="${music.SC}">
+    <img src="${music.SC}"> <br>
+    Name of Song: ${music.song} <br>
+    Artist: ${music.artist}
+    
     </div>
     `;
 }
