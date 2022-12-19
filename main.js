@@ -10,14 +10,13 @@ let btnE1 = document.getElementById("btn");
 let removebtnE1 = document.getElementById("remove");
 
 btnE1.addEventListener("click", addMusic);
-removebtnE1.addEventListener("click", removehandle);
 
+// Display all music data on the page
 function displayMusic() {
-  let outputstr = ``;
+  musicdivE1.innerHTML = ""; // Clear the data
   for (let i = 0; i < music.length; i++) {
-    outputstr += getmusicStr(music[i], i);
+    musicdivE1.appendChild(getmusichtml(music[i], i));
   }
-  musicdivE1.innerHTML = outputstr;
 }
 
 function addMusic() {
@@ -32,7 +31,7 @@ function addMusic() {
   displayMusic();
   savemusic();
 }
-
+// does not rediplay once item has been removed but does remove item from array
 function removehandle(e) {
   let index = +e.target.dataset.index;
   console.log(e.target);
@@ -57,14 +56,46 @@ function loadmusic() {
   let musicstr = localStorage.getItem("music");
   return JSON.parse(musicstr) ?? [];
 }
-function getmusicStr(music, i) {
-  return `
-    <div> 
-    Favourite  Song ${i} <br>
-    <img src="${music.SC}"> <br>
-    Name of Song: ${music.song} <br>
-    Artist: ${music.artist} <br>
-    Length of Song: ${music.legnth} <br>
-    </div>
-    `;
+function getmusichtml(music, index) {
+  let divE1 = document.createElement("div");
+//DOESNT WORK 
+  // let textspanE1 = document.createElement("span");
+  // textspanE1.innerHTML = `
+  //   Favourite  Song ${i} <br>
+  //   <img src="${music.SC}"> <br>       
+  //   Name of Song: ${music.song} <br>
+  //    Artist: ${music.artist} <br>
+  //   Length of Song: ${music.legnth} <br>
+  //  `;
+  // why the hell does the above not work 
+  //some issue with line 64, i still dont understand it  lol 
+  let textspanE1 = document.createElement("span");
+  //WORKS
+  textspanE1.innerHTML = `
+  favourite song ${index} <br>
+   Name of Song:${music.song} <br>
+   Artist: ${music.artist} <br>
+   Song Legnth: ${music.legnth} <br>
+   ${music.SC} <br>
+   `;
+  let buttonE1 = document.createElement("button");
+  buttonE1.innerHTML = "Remove";
+  buttonE1.dataset.index = index;
+  buttonE1.addEventListener("click", removehandle);
+
+  divE1.appendChild(textspanE1);
+  divE1.appendChild(buttonE1);
+  return divE1;
 }
+//OG way of displaying user input
+// function getmusicStr(music, i) {
+//   return `
+//     <div>
+//     Favourite  Song ${i} <br>
+//     <img src="${music.SC}"> <br>
+//     Name of Song: ${music.song} <br>
+//     Artist: ${music.artist} <br>
+//     Length of Song: ${music.legnth} <br>
+//     </div>
+//     `;
+// }
